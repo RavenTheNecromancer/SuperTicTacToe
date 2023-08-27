@@ -38,9 +38,20 @@ public class MainGrid
 				//Draw Line on Left
 				Debug.DrawLine(GetWorldPosition(x, y) + offset * 1.5f, GetWorldPosition(x, y + 1) + offset * 1.5f, Color.white, 100f);
 
-			}
+                // Attach a BoxCollider to each tile for clicking
+                GameObject tile = new GameObject("Tile_" + x + "_" + y);
+                tile.transform.position = GetWorldPosition(x, y) + offset;
+
+                BoxCollider collider = tile.AddComponent<BoxCollider>();
+                float colliderSize = cellSize * 1f; // Adjust this factor to control the size
+                collider.size = new Vector3(colliderSize, colliderSize, 0f);
+
+                tile.AddComponent<TileClickHandle>().Initialize(this, x, y); // Add TileClickHandler component
+
+
+            }
             //Draw horizontal on Top
-			Debug.DrawLine(GetWorldPosition(0, height) + offset * 1.5f, GetWorldPosition(width, height) + offset * 1.5f, Color.white, 100f);
+            Debug.DrawLine(GetWorldPosition(0, height) + offset * 1.5f, GetWorldPosition(width, height) + offset * 1.5f, Color.white, 100f);
 			//Draw vertical on Right
 			Debug.DrawLine(GetWorldPosition(width, 0) + offset * 1.5f, GetWorldPosition(width, height) + offset * 1.5f, Color.white, 100f);
                 
