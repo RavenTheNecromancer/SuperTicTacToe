@@ -29,9 +29,21 @@ public class MainGrid
                     gridArray[x, y].ToString(), null, GetWorldPosition(x, y), 20,
                     Color.white, TextAnchor.MiddleCenter
                 );
-            }
-        }
-    }
+
+                //Draw Line on Bottom
+                Debug.DrawLine(GetWorldPosition(x, y), GetWorldPosition(x + 1, y), Color.white, 100f);
+				//Draw Line on Left
+				Debug.DrawLine(GetWorldPosition(x, y), GetWorldPosition(x, y + 1), Color.white, 100f);
+
+			}
+            //Draw horizontal on Top
+			Debug.DrawLine(GetWorldPosition(0, height), GetWorldPosition(width, height), Color.white, 100f);
+			//Draw vertical on Right
+			Debug.DrawLine(GetWorldPosition(width, 0), GetWorldPosition(width, height), Color.white, 100f);
+
+
+		}
+	}
 
 	//Get coordinates for the given grid and calculates the position depending on the cell size
 	private Vector3 GetWorldPosition(int x, int y)
