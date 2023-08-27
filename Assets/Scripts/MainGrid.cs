@@ -21,12 +21,16 @@ public class MainGrid
 
         gridArray = new int[width, height];
 
+        //Grid offset so middle is in center
+        Vector3 offset = new Vector3(-cellSize * (width - 1) * 0.5f, -cellSize * (height - 1) * 0.5f);
+
+
         for (int x = 0; x < gridArray.GetLength(0); x++)
         {
             for (int y = 0; y < gridArray.GetLength(1); y++)
             {
                 Utils.CreateWorldText(
-                    gridArray[x, y].ToString(), null, GetWorldPosition(x, y), 20,
+                    gridArray[x, y].ToString(), null, GetWorldPosition(x, y) + offset, 20,
                     Color.white, TextAnchor.MiddleCenter
                 );
             }
