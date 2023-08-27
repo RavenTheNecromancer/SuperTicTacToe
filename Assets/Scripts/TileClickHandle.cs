@@ -5,6 +5,8 @@ using UnityEngine;
 public class TileClickHandle : MonoBehaviour
 {
 
+    public GameObject xObjectPrefab;
+	public GameObject oObjectPrefab;
     private MainGrid mainGrid;
     private int tileX;
     private int tileY;
@@ -20,7 +22,11 @@ public class TileClickHandle : MonoBehaviour
     {
         // This function will be called when the tile is clicked
         // You can implement any actions you want here
+        var position = new Vector3(tileX, tileY);
         Debug.Log("Tile Clicked: (" + tileX + ", " + tileY + ")");
+		GameObject oObject = Instantiate(oObjectPrefab, position, Quaternion.identity);
+        Instantiate(oObject);
+		//projectile.GetComponent<Rigidbody>().velocity = fireballSpawnPoint.forward * projectileSpeed;
     }
 
     // Start is called before the first frame update
