@@ -24,7 +24,6 @@ public class MainGrid
         //Grid offset so middle is in center
         Vector3 offset = new Vector3(-cellSize * (width - 1) * 0.5f, -cellSize * (height - 1) * 0.5f);
 
-
         for (int x = 0; x < gridArray.GetLength(0); x++)
         {
             for (int y = 0; y < gridArray.GetLength(1); y++)
@@ -35,16 +34,16 @@ public class MainGrid
                 );
 
                 //Draw Line on Bottom
-                Debug.DrawLine(GetWorldPosition(x, y), GetWorldPosition(x + 1, y), Color.white, 100f);
+                Debug.DrawLine(GetWorldPosition(x, y) + offset * 1.5f, GetWorldPosition(x + 1, y) + offset * 1.5f, Color.white, 100f);
 				//Draw Line on Left
-				Debug.DrawLine(GetWorldPosition(x, y), GetWorldPosition(x, y + 1), Color.white, 100f);
+				Debug.DrawLine(GetWorldPosition(x, y) + offset * 1.5f, GetWorldPosition(x, y + 1) + offset * 1.5f, Color.white, 100f);
 
 			}
             //Draw horizontal on Top
-			Debug.DrawLine(GetWorldPosition(0, height), GetWorldPosition(width, height), Color.white, 100f);
+			Debug.DrawLine(GetWorldPosition(0, height) + offset * 1.5f, GetWorldPosition(width, height) + offset * 1.5f, Color.white, 100f);
 			//Draw vertical on Right
-			Debug.DrawLine(GetWorldPosition(width, 0), GetWorldPosition(width, height), Color.white, 100f);
-
+			Debug.DrawLine(GetWorldPosition(width, 0) + offset * 1.5f, GetWorldPosition(width, height) + offset * 1.5f, Color.white, 100f);
+                
 
 		}
 	}
