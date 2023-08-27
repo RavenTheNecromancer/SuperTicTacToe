@@ -4,16 +4,25 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        //Array initialisation
 
-    }
+	//USE FOR TESTING
 
-    // Update is called once per frame
-    void Update()
-    {
-        //Actuall logic
-    }
+	private void Start()
+	{
+		MainGrid grid = new MainGrid(3, 3, 3f);
+	}
+
+
+	//// Start is called before the first frame update
+	//void Start()
+	//{
+	//    //Array initialisation
+
+	//}
+
+	//// Update is called once per frame
+	//void Update()
+	//{
+	//    //Actuall logic
+	//}
 }
